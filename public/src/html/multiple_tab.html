@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Tab Example</title>
+    <link rel="stylesheet" href="../../dist/css/simpletab.min.css">
+
+    <script src="../../dist/js/jquery-3.4.1.min.js"></script>
+    <script src="../../dist/js/simpletab.min.js"></script>
+    <script type='text/javascript'>
+    jQuery(document).ready(function($){
+
+        //How to use tabs with common properties.
+        $(".tab").each(function(){
+            $(this).simpleTab({
+                defaultSkin: true
+            });
+        });
+
+        //You can use tab with each selector to have other properties.
+        $(".tab3").simpleTab({
+            defaultSkin: true,
+            fadeEffect: false,
+            startIndex: 2
+        });
+    });
+    </script>
+
+    <style>
+    .tabContent {font-size:25px;}
+    #content1 {background:#ffffff;}
+    #content2 {background:#eaf5ed;}
+    #content3 {background:#f5f0ea;}
+    #content4 {background:#efeaf7;}
+    #content5 {background:#f7ecea;}
+    </style>
+</head>
+<body style="padding:30px;">
+
+    <!-- Tab2 -->
+    <ul class="tab tab1" data-tab-name="tab1">
+        <li><a href="#content1-1">TAB1</a></li>
+        <li><a href="#content1-2">TAB2</a></li>
+        <li><a href="#content1-3">TAB3</a></li>
+        <li><a href="#content1-4">TAB4</a></li>
+        <li><a href="#content1-5">TAB5</a></li>
+        <li><a href="https://github.com/wookchu/SimpleTab" target="_blank">LINK ↗︎</a></li>
+    </ul>
+
+    <!-- Content -->
+    <div class="tabContent" id="content1-1">
+        1st Tab Group: Content of TAB 1
+    </div>
+
+    <div class="tabContent" id="content1-2">
+        1st Tab Group: Content of TAB 2
+    </div>
+
+    <div class="tabContent" id="content1-3">
+        1st Tab Group: Content of TAB 3
+    </div>
+
+    <div class="tabContent" id="content1-4">
+        1st Tab Group: Content of TAB 4
+    </div>
+
+    <div class="tabContent" id="content1-5">
+        1st Tab Group: Content of TAB 5
+    </div>
+
+
+
+    <!-- Tab2 -->
+    <ul class="tab tab2" data-tab-name="tab2">
+        <li><a href="#content2-1">TAB1</a></li>
+        <li><a href="#content2-2">TAB2</a></li>
+        <li><a href="#content2-3">TAB3</a></li>
+    </ul>
+
+    <!-- Content -->
+    <div class="tabContent" id="content2-1">
+        2nd Tab Group: Content of TAB 1
+    </div>
+
+    <div class="tabContent" id="content2-2">
+        2nd Tab Group: Content of TAB 2
+    </div>
+
+    <div class="tabContent" id="content2-3">
+        2nd Tab Group: Content of TAB 3
+    </div>
+
+
+
+    <!-- Tab3 -->
+    <ul class="tab3" data-tab-name="tab3">
+        <li><a href="#content3-1">TAB1</a></li>
+        <li><a href="#content3-2">TAB2</a></li>
+        <li><a href="#content3-3">TAB3</a></li>
+        <li><a href="#content3-4">TAB4</a></li>
+    </ul>
+
+    <!-- Content -->
+    <div class="tabContent" id="content3-1">
+        3rd Tab Group: Content of TAB 1
+    </div>
+
+    <div class="tabContent" id="content3-2">
+        3rd Tab Group: Content of TAB 2
+    </div>
+
+    <div class="tabContent" id="content3-3">
+        3rd Tab Group: Content of TAB 3
+    </div>
+
+    <div class="tabContent" id="content3-4">
+        3rd Tab Group: Content of TAB 4
+    </div>
+</body>
+</html>
