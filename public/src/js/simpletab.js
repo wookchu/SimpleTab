@@ -12,14 +12,14 @@
         var el = this;
 
         var settings = $.extend({
+            defaultSkin: false,
             onTabClass: 'selected',
             dimmedTabClass: 'dimmed',
             startIndex: 0,
+            dimmedIndexs: null,
             fadeEffect: true,
             fadeSpeed: 400,
-            dimmedIndexs: null,
-            afterChange: null,
-            defaultSkin: false
+            afterChange: null
         }, options);
 
         var loopCount = 0;

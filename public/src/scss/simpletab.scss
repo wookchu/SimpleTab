@@ -1,42 +1,21 @@
 @charset "utf-8";
 
-@function string-to-list($string, $separator: ' ', $startAt: 1) {
-	$workStr: str-slice($string, $startAt);
-	$list: ();
-	$indexOfFirstSpace: str-index($workStr, $separator);
-	@if $indexOfFirstSpace==null {
-		$list: ($workStr);
-	}
-	@else {
-		$list: (str-slice($workStr, 1, $indexOfFirstSpace - 1));
-		$list: join($list, string-to-list($workStr, $startAt: $indexOfFirstSpace + 1));
-	}
-	@return $list;
-}
+$selected-class: '.selected' !default;
+$dimmed-class: '.dimmed' !default;
 
-@function parent-append ($appendix, $parent, $at-start) {
-	$parentSelector: string-to-list(unquote("#{&}"));
-	$lenght: length($parentSelector);
-	@if $parent >=$lenght or $parent < 0 {
-		@error "Index '#{$parent}' is out of range. //#{$parentSelector}";
-	}
-	$pos: $lenght - $parent;
-	@if $at-start == false {
-		$selector: set-nth($parentSelector, $pos, nth($parentSelector, $pos) + $appendix);
-		@return $selector;
-	}
-	@if $at-start == true {
-		$selector: set-nth($parentSelector, $pos, $appendix + nth($parentSelector, $pos));
-		@return $selector;
-	}
+$default-tab-bg-color: #f5f5f5 !default;
+$default-tab-text-color: #777777 !default;
+$default-tab-border-color: #dddddd !default;
 
-}
+$selected-tab-bg-color: #ffffff !default;
+$selected-tab-text-color: #000000 !default;
+$selected-tab-border-color: #09c453 !default;
+$selected-tab-border-width: 4px !default;
+$selected-tab-shadow-opacity: 0.1 !default;
 
-@mixin parent-append ($appendix, $parent: 1, $at-start: false) {
-	@at-root #{parent-append($appendix, $parent, $at-start)} {
-		@content;
-	}
-}
+$dimmed-tab-bg-color: #d5d5d5 !default;
+
+$tab-content-padding: 30px !default;
 
 * {margin:0;padding:0;}
 html, body {height:100%;}
@@ -44,16 +23,14 @@ ol, ul, ul li{list-style:none;}
 a:link, a:visited, a:active, a:focus, a:hover {text-decoration:none;}
 
 .simple-tab {
-    $selected-class: '.selected';
-	$dimmed-class: '.dimmed';
 	position:relative;z-index:1;margin-bottom:-1px;padding-top:5px;padding-left:1px;overflow:hidden;
 
-    & > li {position:relative;float:left;margin-top:3px;margin-left:-1px;border:1px solid #ddd;background:#f5f5f5;
-        & > a {display:table-cell;vertical-align:middle;padding:0 20px;max-width:250px;height:50px;overflow:hidden;color:#777;font-size:15px;letter-spacing:0.08em;line-height:1.66em;text-overflow:ellipsis;white-space:none;}
-		&#{$selected-class} {z-index:9;margin-top:0;box-shadow:0 -1px 10px rgba(0,0,0,.1);border-top-width:4px;border-top-color:#09c453;border-bottom-color:#fff;background:#fff;
-			& > a {color:#000;}
+    & > li {position:relative;float:left;margin-top:$selected-tab-border-width - 1;margin-left:-1px;border:1px solid $default-tab-border-color;background:$default-tab-bg-color;
+        & > a {display:table-cell;vertical-align:middle;padding:0 20px;max-width:250px;height:50px;overflow:hidden;color:$default-tab-text-color;font-size:15px;letter-spacing:0.08em;line-height:1.66em;text-overflow:ellipsis;white-space:none;}
+		&#{$selected-class} {z-index:9;margin-top:0;box-shadow:0 -1px 10px rgba(0,0,0,$selected-tab-shadow-opacity);border-top-width:$selected-tab-border-width;border-top-color:$selected-tab-border-color;border-bottom-color:#fff;background:$selected-tab-bg-color;
+			& > a {color:$selected-tab-text-color;}
 		}
-		&#{$dimmed-class} > a {color:#d5d5d5;}
+		&#{$dimmed-class} > a {color:$dimmed-tab-bg-color;}
     }
 }
-.simple-tab-content {border:1px solid #ddd;background:#fff;padding:30px;min-height:200px;}
+.simple-tab-content {border:1px solid $default-tab-border-color;background:#fff;padding:$tab-content-padding;min-height:200px;}
