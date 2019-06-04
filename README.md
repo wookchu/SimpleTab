@@ -1,7 +1,8 @@
 # SimpleTab
 Simple tab plugin with jQuery
 
-<div style="border:1px solid #eee;">![Default Skin](https://github.com/wookchu/SimpleTab/blob/master/public/src/img/screenshot_1.png?raw=true)</div>
+<div style="border:1px solid #eee;">
+<img src='https://github.com/wookchu/SimpleTab/blob/master/public/src/img/screenshot_1.png?raw=true' alt='default skin' /></div>
 
 ## Features
 - A tab plug-in containing only the essential features :-)
