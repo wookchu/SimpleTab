@@ -6,6 +6,8 @@ $dimmed-class: '.dimmed' !default;
 $default-tab-bg-color: #f5f5f5 !default;
 $default-tab-text-color: #777777 !default;
 $default-tab-border-color: #dddddd !default;
+$default-tab-height: 50px !default;
+$mobile-tab-height: 40px !default;
 
 $selected-tab-bg-color: #ffffff !default;
 $selected-tab-text-color: #000000 !default;
@@ -23,14 +25,85 @@ ol, ul, ul li{list-style:none;}
 a:link, a:visited, a:active, a:focus, a:hover {text-decoration:none;}
 
 .simple-tab {
-	position:relative;z-index:1;margin-bottom:-1px;padding-top:5px;padding-left:1px;overflow:hidden;
+	position:relative;
+	overflow:hidden;
+	margin-bottom:-1px;
+	padding-top:5px;
+	padding-left:1px;
+	z-index:1;
 
-    & > li {position:relative;float:left;margin-top:$selected-tab-border-width - 1;margin-left:-1px;border:1px solid $default-tab-border-color;background:$default-tab-bg-color;
-        & > a {display:table-cell;vertical-align:middle;padding:0 20px;max-width:250px;height:50px;overflow:hidden;color:$default-tab-text-color;font-size:15px;letter-spacing:0.08em;line-height:1.66em;text-overflow:ellipsis;white-space:none;}
-		&#{$selected-class} {z-index:9;margin-top:0;box-shadow:0 -1px 10px rgba(0,0,0,$selected-tab-shadow-opacity);border-top-width:$selected-tab-border-width;border-top-color:$selected-tab-border-color;border-bottom-color:#fff;background:$selected-tab-bg-color;
-			& > a {color:$selected-tab-text-color;}
+	& > li {
+		position:relative;
+		float:left;
+		margin-top:$selected-tab-border-width - 1;
+		margin-left:-1px;
+		border:1px solid $default-tab-border-color;
+		background:$default-tab-bg-color;
+
+		& > a {
+			display:table-cell;
+			overflow:hidden;
+			height:$default-tab-height;
+			max-width:250px;
+			padding:0 20px;
+			font-size:15px;
+			color:$default-tab-text-color;
+			line-height:1.66em;
+			letter-spacing:0.08em;
+			text-overflow:ellipsis;
+			vertical-align:middle;
+			white-space:nowrap;
 		}
-		&#{$dimmed-class} > a {color:$dimmed-tab-bg-color;}
-    }
+		&#{$selected-class} {
+			margin-top:0;
+			box-shadow:0 -1px 10px rgba(0,0,0,$selected-tab-shadow-opacity);
+			border-top-width:$selected-tab-border-width;
+			border-top-color:$selected-tab-border-color;
+			border-bottom-color:#fff;
+			background:$selected-tab-bg-color;
+			z-index:9;
+
+			& > a {
+				color:$selected-tab-text-color;
+			}
+		}
+		&#{$dimmed-class} > a {
+			color:$dimmed-tab-bg-color;
+		}
+	}
+
+	@media screen and (max-device-width:767px) {
+		display:flex;
+		flex-wrap:wrap;
+
+		& > li {
+			display:table;
+			flex:1 1;
+			float:none;
+			margin-top:-1px !important;
+
+			& > a {
+				height:$mobile-tab-height - $selected-tab-border-width;
+				padding:$selected-tab-border-width  5px 0;
+				height:$mobile-tab-height;
+				font-size:14px;
+				text-align:center;
+				-webkit-line-clamp:2;
+			}
+			&#{$selected-class} {
+				border-bottom-color:$default-tab-border-color;
+
+				& > a {
+					padding-top:1px;
+				}
+			}
+		}
+	}
 }
-.simple-tab-content {border:1px solid $default-tab-border-color;background:#fff;padding:$tab-content-padding;min-height:200px;}
+
+.simple-tab-content {
+	min-height:200px;
+	padding:$tab-content-padding;
+	border:1px solid $default-tab-border-color;
+	background:#fff;
+}

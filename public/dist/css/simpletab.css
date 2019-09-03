@@ -17,11 +17,11 @@ a:link, a:visited, a:active, a:focus, a:hover {
 
 .simple-tab {
   position: relative;
-  z-index: 1;
+  overflow: hidden;
   margin-bottom: -1px;
   padding-top: 5px;
   padding-left: 1px;
-  overflow: hidden;
+  z-index: 1;
 }
 
 .simple-tab > li {
@@ -35,27 +35,27 @@ a:link, a:visited, a:active, a:focus, a:hover {
 
 .simple-tab > li > a {
   display: table-cell;
-  vertical-align: middle;
-  padding: 0 20px;
-  max-width: 250px;
-  height: 50px;
   overflow: hidden;
-  color: #777777;
+  height: 50px;
+  max-width: 250px;
+  padding: 0 20px;
   font-size: 15px;
-  letter-spacing: 0.08em;
+  color: #777777;
   line-height: 1.66em;
+  letter-spacing: 0.08em;
   text-overflow: ellipsis;
-  white-space: none;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
 .simple-tab > li.selected {
-  z-index: 9;
   margin-top: 0;
   box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
   border-top-width: 4px;
   border-top-color: #09c453;
   border-bottom-color: #fff;
   background: #ffffff;
+  z-index: 9;
 }
 
 .simple-tab > li.selected > a {
@@ -66,9 +66,36 @@ a:link, a:visited, a:active, a:focus, a:hover {
   color: #d5d5d5;
 }
 
+@media screen and (max-device-width: 767px) {
+  .simple-tab {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .simple-tab > li {
+    display: table;
+    flex: 1 1;
+    float: none;
+    margin-top: -1px !important;
+  }
+  .simple-tab > li > a {
+    height: 36px;
+    padding: 4px 5px 0;
+    height: 40px;
+    font-size: 14px;
+    text-align: center;
+    -webkit-line-clamp: 2;
+  }
+  .simple-tab > li.selected {
+    border-bottom-color: #dddddd;
+  }
+  .simple-tab > li.selected > a {
+    padding-top: 1px;
+  }
+}
+
 .simple-tab-content {
+  min-height: 200px;
+  padding: 30px;
   border: 1px solid #dddddd;
   background: #fff;
-  padding: 30px;
-  min-height: 200px;
 }

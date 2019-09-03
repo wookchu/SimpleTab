@@ -1,75 +1,75 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Simple Tab Example</title>
-    <link rel="stylesheet" href="../../dist/css/simpletab.min.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Simple Tab Example</title>
+	<link rel="stylesheet" href="../../dist/css/simpletab.min.css">
 
-    <script src="../../dist/js/jquery-3.4.1.min.js"></script>
-    <script src="../../dist/js/simpletab.min.js"></script>
-    <script type='text/javascript'>
-    jQuery(document).ready(function($){
-        $(".tab").simpleTab({
-            startIndex: 1,                 //default value is 0.
-            onTabClass: 'on',              //default value is 'selected'
-            dimmedTabClass: 'disable',     //default value is 'dimmed'
-            defaultSkin: false,            //default value is false.
-            dimmedIndexs: '4, 5',          //start with 0 base. Outlink tab can be used with dimmed Index too.
-            fadeEffect: false              //default value is true.
-        });
-    });
-    </script>
+	<script src="../../dist/js/jquery-3.4.1.min.js"></script>
+	<script src="../../dist/js/simpletab.min.js"></script>
+	<script type='text/javascript'>
+	jQuery(document).ready(function($){
+		$(".tab").simpleTab({
+			startIndex: 1,                 //default value is 0.
+			onTabClass: 'on',              //default value is 'selected'
+			dimmedTabClass: 'disable',     //default value is 'dimmed'
+			defaultSkin: false,            //default value is false.
+			dimmedIndexs: '4, 5',          //start with 0 base. Outlink tab can be used with dimmed Index too.
+			fadeEffect: false              //default value is true.
+		});
+	});
+	</script>
 
-    <style>
-    /* custom styling */
-    .tab {overflow:hidden;}
-    .tab li {float:left;margin-right:10px;}
-    .tab li > a {width:100px;height:100px;line-height:100px;text-align:center;border-radius:100%;border:1px solid #ddd;display:block;letter-spacing:2px;color:#444;}
-    .tab li > a.link {background:#89c4d8;border-color:#89c4d8;color:#fff;}
-    .tab li.on > a {background:#ff9d0a;border-color:#ff9d0a;color:#000;}
-    .tab li.disable > a {background:#e5e5e5;border-color:#ddd;color:#aaa;}
-    .tabContent {margin-top:20px;font-size:25px;border:1px solid #ddd;min-height:200px;padding:30px;}
-    #content1 {background:#ffffff;}
-    #content2 {background:#eaf5ed;}
-    #content3 {background:#f5f0ea;}
-    #content4 {background:#efeaf7;}
-    #content5 {background:#f7ecea;}
-    </style>
+	<style>
+	/* custom styling */
+	.tab {overflow:hidden;}
+	.tab li {float:left;margin-right:10px;}
+	.tab li > a {width:100px;height:100px;line-height:100px;text-align:center;border-radius:100%;border:1px solid #ddd;display:block;letter-spacing:2px;color:#444;}
+	.tab li > a.link {background:#89c4d8;border-color:#89c4d8;color:#fff;}
+	.tab li.on > a {background:#ff9d0a;border-color:#ff9d0a;color:#000;}
+	.tab li.disable > a {background:#e5e5e5;border-color:#ddd;color:#aaa;}
+	.tabContent {margin-top:20px;font-size:25px;border:1px solid #ddd;min-height:200px;padding:30px;}
+	#content1 {background:#ffffff;}
+	#content2 {background:#eaf5ed;}
+	#content3 {background:#f5f0ea;}
+	#content4 {background:#efeaf7;}
+	#content5 {background:#f7ecea;}
+	</style>
 </head>
 <body style="padding:30px;">
 
-    <!-- Tab -->
-    <ul class="tab" data-tab-name="tab1">
-        <li><a href="#content1">TAB1</a></li>
-        <li><a href="#content2">TAB2</a></li>
-        <li><a href="#content3">TAB3</a></li>
-        <li><a href="#content4">TAB4</a></li>
-        <li><a href="#content5">TAB5</a></li>
-        <li><a href="https://github.com/wookchu/SimpleTab" target="_blank" class="link">LINK1 ↗︎</a></li>
-        <li><a href="https://github.com/wookchu/SimpleTab" target="_blank" class="link">LINK2 ↗︎</a></li>
-    </ul>
+	<!-- Tab -->
+	<ul class="tab" data-tab-name="tab1">
+		<li><a href="#content1">TAB1</a></li>
+		<li><a href="#content2">TAB2</a></li>
+		<li><a href="#content3">TAB3</a></li>
+		<li><a href="#content4">TAB4</a></li>
+		<li><a href="#content5">TAB5</a></li>
+		<li><a href="https://github.com/wookchu/SimpleTab" target="_blank" class="link">LINK1 ↗︎</a></li>
+		<li><a href="https://github.com/wookchu/SimpleTab" target="_blank" class="link">LINK2 ↗︎</a></li>
+	</ul>
 
-    <!-- Content -->
-    <div class="tabContent" id="content1">
-        Content of TAB 1
-    </div>
+	<!-- Content -->
+	<div class="tabContent" id="content1">
+		Content of TAB 1
+	</div>
 
-    <div class="tabContent" id="content2">
-        Content of TAB 2
-    </div>
+	<div class="tabContent" id="content2">
+		Content of TAB 2
+	</div>
 
-    <div class="tabContent" id="content3">
-        Content of TAB 3
-    </div>
+	<div class="tabContent" id="content3">
+		Content of TAB 3
+	</div>
 
-    <div class="tabContent" id="content4">
-        Content of TAB 4
-    </div>
+	<div class="tabContent" id="content4">
+		Content of TAB 4
+	</div>
 
-    <div class="tabContent" id="content5">
-        Content of TAB 5
-    </div>
+	<div class="tabContent" id="content5">
+		Content of TAB 5
+	</div>
 </body>
 </html>

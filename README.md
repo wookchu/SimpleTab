@@ -4,6 +4,11 @@ Simple tab plugin with jQuery
 <div style="border:1px solid #eee;">
 <img src='https://github.com/wookchu/SimpleTab/blob/master/public/src/img/screenshot_1.png?raw=true' alt='default skin' /></div>
 
+## Updates
+- 3, Sep (2019)
+	- Update default skin (with mobile version!)
+	- You can use simpleTab with jquery-slim.js
+
 ## Features
 - A tab plug-in containing only the essential features :-)
 - Enable to styling with custom CSS
@@ -25,23 +30,23 @@ Simple tab plugin with jQuery
 ```HTML
 <!-- Tab -->
 <ul class="tab" data-tab-name="tabExample">
-    <li><a href="#content1">TAB1</a></li>
-    <li><a href="#content2">TAB2</a></li>
-    <li><a href="#content3">TAB3</a></li>
-    <li><a href="http://google.com" target="_blank">Link</a></li><!-- External link -->
+	<li><a href="#content1">TAB1</a></li>
+	<li><a href="#content2">TAB2</a></li>
+	<li><a href="#content3">TAB3</a></li>
+	<li><a href="http://google.com" target="_blank">Link</a></li><!-- External link -->
 </ul>
 
 <!-- Content -->
 <div id="content1">
-    Content of TAB 1
+	Content of TAB 1
 </div>
 
 <div id="content2">
-    Content of TAB 2
+	Content of TAB 2
 </div>
 
 <div id="content3">
-    Content of TAB 3
+	Content of TAB 3
 </div>
 ```
 - Tabs must be written with tag `<a>` and link with content's `id`.
@@ -62,20 +67,20 @@ Simple tab plugin with jQuery
 ##### Default Skin
 ```javascript
 jQuery(document).ready(function($){
-    $(".tab").simpleTab({
-        defaultSkin: true  //default value: false
-    });
+	$(".tab").simpleTab({
+		defaultSkin: true  //default value: false
+	});
 });
 ```
 ##### Custom Skin
 CSS can be written freely, Assign class name for current and unable tab in library options.
 ```javascript
 jQuery(document).ready(function($){
-    // set class of active tab & dimmed tab for styling custom skin
-    $(".tab").simpleTab({
-        onTabClass: 'selected',
-        dimmedTabClass: 'dimmed'
-    });
+	// set class of active tab & dimmed tab for styling custom skin
+	$(".tab").simpleTab({
+		onTabClass: 'selected',
+		dimmedTabClass: 'dimmed'
+	});
 });
 ```
 
@@ -83,12 +88,12 @@ jQuery(document).ready(function($){
 There is callback option running after tab changing.
 ```javascript
 jQuery(document).ready(function($){
-    $(".tab").simpleTab({
-        afterChange:function($content, prevIdx, currentIdx){
-            if(currentIdx == 2) alert("Welcome :) ID of this content is '" + $content.attr("id") + "'.");
-            else alert("Tab is toggled.");
-        }
-    });
+	$(".tab").simpleTab({
+		afterChange:function($content, prevIdx, currentIdx){
+			if(currentIdx == 2) alert("Welcome :) ID of this content is '" + $content.attr("id") + "'.");
+			else alert("Tab is toggled.");
+		}
+	});
 });
 ```
 
@@ -112,6 +117,8 @@ jQuery(document).ready(function($){
 |$default-tab-bg-color|color|#f5f5f5|Color of default tab's background|
 |$default-tab-text-color|color|#777777 |Color of default tab's text|
 |$default-tab-border-color|color|#dddddd |Color of default tab's border|
+|$default-tab-height|pixels|50px |height of default tab|
+|$mobile-tab-height|pixels|40px |height of mobile tab|
 |$selected-tab-bg-color|color|#ffffff |Color of selected tab's background|
 |$selected-tab-text-color|color|#000000 |Color of selected tab's text|
 |$selected-tab-border-color|color|#09c453 |Color of selected tab's border|
